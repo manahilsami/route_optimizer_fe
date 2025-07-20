@@ -1,0 +1,40 @@
+.header {
+  background-color: #848588;
+  padding: 19px 0;
+  color: white;
+  text-align: left;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.header-components {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0;
+  /* height: 75px; */
+}
+
+.header-search {
+  margin-left: 164px;
+  width: 796px;
+  padding: 8px 16px;
+  border-radius: 4px;
+  border: none;
+  height: 37px;
+  font-size: 16px;
+  /* text-align: center; */
+  font-size: 20px;
+}
+.header-title {
+  margin-left: 20px;
+  margin-right: 164px;
+  font-size: 24px;
+  font-weight: bold;
+  color: black;
+  margin-top: 0;
+  margin-bottom: 0;
+}
