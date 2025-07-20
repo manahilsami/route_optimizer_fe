@@ -6,7 +6,6 @@ import Map from "../Map/Map";
 import Sidebar from "../Sidebar/Sidebar";
 
 import "./App.css";
-import Header from "../Header/Header";
 import Main from "../Main/Main";
 
 function App() {
