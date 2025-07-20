@@ -1,7 +1,7 @@
 .map-container {
   width: 100vw;
-  height: calc(100vh - 70px); /* Adjust 70px to your header height */
-  margin-top: 70px; /* Same as header height to avoid overlap */
+  height: calc(100vh - 70px);
+  margin-top: 70px;
 }
 
 .leaflet-map {
