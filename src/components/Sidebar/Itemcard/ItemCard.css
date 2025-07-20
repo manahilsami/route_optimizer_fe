@@ -1,0 +1,60 @@
+.item-card {
+  display: flex;
+  border: 1px solid #ddd;
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 10px;
+
+  max-width: 100%;
+  height: 150px;
+  position: relative;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.info-footer {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+.item-card__img {
+  width: 130px;
+  height: 130px;
+  object-fit: fill;
+  border-radius: 10px;
+  margin-right: 10px;
+  position: relative;
+}
+
+.item-card__button {
+  background: none;
+  cursor: pointer;
+  width: 20%;
+  height: 50%;
+  padding: 0;
+  background-image: url(../../../assets/like.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}
+
+.item-card__button.liked {
+  background-image: url(../../../assets/like-active.svg);
+}
+
+.item-card__name {
+  font-size: 30px;
+  margin: 0;
+}
+
+.item-card__town {
+  margin-top: 0px;
+}

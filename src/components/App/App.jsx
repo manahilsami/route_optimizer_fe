@@ -3,14 +3,21 @@ import reactLogo from "../../assets/react.svg";
 import viteLogo from "/vite.svg";
 import Header from "../Header/Header";
 import Map from "../Map/Map";
+import Sidebar from "../Sidebar/Sidebar";
 
 import "./App.css";
+import Main from "../Main/Main";
 
 function App() {
   return (
     <>
       <Header />
-      <Map />
+      <div className="app-container">
+        <div className="map-area">
+          <Map />
+        </div>
+        <Sidebar />
+      </div>
     </>
   );
 }
