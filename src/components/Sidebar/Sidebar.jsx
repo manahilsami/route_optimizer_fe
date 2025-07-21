@@ -2,56 +2,12 @@ import "./Sidebar.css";
 import { useEffect, useState } from "react";
 import ItemCard from "./Itemcard/ItemCard";
 
-function Sidebar() {
+function Sidebar({ Data }) {
   const [places, setPlaces] = useState([]);
 
   useEffect(() => {
-    const Data = [
-      {
-        name: "Cool Place",
-        town: "Town Name",
-        rating: 5.0,
-        image:
-          "https://upload.wikimedia.org/wikipedia/commons/a/a8/Tour_Eiffel_Wikimedia_Commons.jpg",
-      },
-      {
-        name: "Cool Place",
-        town: "Town Name",
-        rating: 5.0,
-        image:
-          "https://upload.wikimedia.org/wikipedia/commons/a/a8/Tour_Eiffel_Wikimedia_Commons.jpg",
-      },
-      {
-        name: "Cool Place",
-        town: "Town Name",
-        rating: 5.0,
-        image:
-          "https://upload.wikimedia.org/wikipedia/commons/a/a8/Tour_Eiffel_Wikimedia_Commons.jpg",
-      },
-      {
-        name: "Cool Place",
-        town: "Town Name",
-        rating: 5.0,
-        image:
-          "https://upload.wikimedia.org/wikipedia/commons/a/a8/Tour_Eiffel_Wikimedia_Commons.jpg",
-      },
-      {
-        name: "Cool Place",
-        town: "Town Name",
-        rating: 5.0,
-        image:
-          "https://upload.wikimedia.org/wikipedia/commons/a/a8/Tour_Eiffel_Wikimedia_Commons.jpg",
-      },
-      {
-        name: "Cool Place",
-        town: "Town Name",
-        rating: 5.0,
-        image:
-          "https://upload.wikimedia.org/wikipedia/commons/a/a8/Tour_Eiffel_Wikimedia_Commons.jpg",
-      },
-    ];
     setPlaces(Data);
-  }, []);
+  }, [Data]);
 
   return (
     <>
