@@ -24,7 +24,6 @@ function Sidebar({ Data, likedPlaces, handleLike, handleMakeRoute }) {
         </div>
         <div className="sidebar__bottom">
           <button className="make__route-btn" onClick={handleMakeRoute}>
-            {" "}
             Make Route
           </button>
         </div>
