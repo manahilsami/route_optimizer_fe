@@ -14,6 +14,7 @@ function Header() {
           type="text"
           placeholder="Which City Are You Traveling To?"
         />
+        <button className="header-button">SEARCH</button>
       </div>
       <h1 className="header-title">Vacation Optimizer</h1>
     </header>

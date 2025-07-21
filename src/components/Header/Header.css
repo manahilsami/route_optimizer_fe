@@ -38,6 +38,17 @@
   font-size: 20px;
 }
 
+.header-button {
+  margin-left: 20px;
+  padding: 8px 16px;
+  border-radius: 4px;
+  border: none;
+  background-color: #4caf50;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
 .header-title {
   margin-left: 20px;
   margin-right: 164px;
