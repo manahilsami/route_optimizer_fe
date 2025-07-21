@@ -1,6 +1,10 @@
 import "./ItemCard.css";
 
-function ItemCard({ place }) {
+function ItemCard({ place, onLike, liked }) {
+  const handleLikeClick = () => {
+    onLike(place.name);
+  };
+
   return (
     <div className="item-card">
       <img src={place.image} alt={place.name} className="item-card__img" />
@@ -10,7 +14,10 @@ function ItemCard({ place }) {
         <p className="item-card__rating">⭐ {place.rating}</p>
       </div>
       <div className="info-footer">
-        <button className="item-card__button"></button>
+        <button
+          className={`item-card__button ${liked ? "liked" : ""}`}
+          onClick={handleLikeClick}
+        ></button>
       </div>
     </div>
   );
