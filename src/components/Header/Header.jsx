@@ -4,9 +4,18 @@ function Header() {
   return (
     <header className="header">
       <div className="header-components">
-        <input className="header-search" type="text" placeholder="SEARCH" />
-        <h1 className="header-title">Vacation Optimizer</h1>
+        <input
+          className="header-from"
+          type="text"
+          placeholder="Which City Are You Leaving From?"
+        />
+        <input
+          className="header-to"
+          type="text"
+          placeholder="Which City Are You Traveling To?"
+        />
       </div>
+      <h1 className="header-title">Vacation Optimizer</h1>
     </header>
   );
 }

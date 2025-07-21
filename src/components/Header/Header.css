@@ -8,27 +8,36 @@
   left: 0;
   width: 100%;
   z-index: 1000;
-}
-
-.header-components {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0;
-  /* height: 75px; */
 }
 
-.header-search {
-  margin-left: 164px;
-  width: 796px;
+.header-components {
+  padding: 0;
+}
+.header-from {
+  margin-left: 60px;
+  width: 350px;
   padding: 8px 16px;
   border-radius: 4px;
   border: none;
   height: 37px;
   font-size: 16px;
-  /* text-align: center; */
   font-size: 20px;
 }
+
+.header-to {
+  margin-left: 10px;
+  width: 350px;
+  padding: 8px 16px;
+  border-radius: 4px;
+  border: none;
+  height: 37px;
+  font-size: 16px;
+  font-size: 20px;
+}
+
 .header-title {
   margin-left: 20px;
   margin-right: 164px;
