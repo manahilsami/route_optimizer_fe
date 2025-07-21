@@ -4,6 +4,7 @@ import viteLogo from "/vite.svg";
 import Header from "../Header/Header";
 import Map from "../Map/Map";
 import Sidebar from "../Sidebar/Sidebar";
+import { SidebarData } from "../utils/constants";
 
 import "./App.css";
 import Main from "../Main/Main";
@@ -16,7 +17,7 @@ function App() {
         <div className="map-area">
           <Map />
         </div>
-        <Sidebar />
+        <Sidebar Data={SidebarData} />
       </div>
     </>
   );
