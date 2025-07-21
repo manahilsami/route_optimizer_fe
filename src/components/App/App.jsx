@@ -1,23 +1,43 @@
 import { useState } from "react";
-import reactLogo from "../../assets/react.svg";
-import viteLogo from "/vite.svg";
 import Header from "../Header/Header";
 import Map from "../Map/Map";
 import Sidebar from "../Sidebar/Sidebar";
-import { SidebarData } from "../utils/constants";
-
 import "./App.css";
 import Main from "../Main/Main";
+import { SidebarData as defaultSidebarData, url } from "../utils/constants";
 
 function App() {
+  const [fromCity, setFromCity] = useState("");
+  const [toCity, setToCity] = useState("");
+  const [sidebarData, setSidebarData] = useState(defaultSidebarData);
+
+  const handleSearch = () => {
+    fetch(
+      `${url}/places?fromCity=${encodeURIComponent(
+        fromCity
+      )}&toCity=${encodeURIComponent(toCity)}`
+    )
+      .then((response) => response.json())
+      .then((data) => setSidebarData(data))
+      .catch((error) => {
+        console.error("API error:", error);
+      });
+  };
+
   return (
     <>
-      <Header />
+      <Header
+        fromCity={fromCity}
+        toCity={toCity}
+        setFromCity={setFromCity}
+        setToCity={setToCity}
+        onSearch={handleSearch}
+      />
       <div className="app-container">
         <div className="map-area">
           <Map />
         </div>
-        <Sidebar Data={SidebarData} />
+        <Sidebar Data={sidebarData} />
       </div>
     </>
   );
