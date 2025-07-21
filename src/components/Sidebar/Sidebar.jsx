@@ -2,7 +2,7 @@ import "./Sidebar.css";
 import { useEffect, useState } from "react";
 import ItemCard from "./Itemcard/ItemCard";
 
-function Sidebar({ Data }) {
+function Sidebar({ Data, likedPlaces, handleLike, handleMakeRoute }) {
   const [places, setPlaces] = useState([]);
 
   useEffect(() => {
@@ -14,11 +14,18 @@ function Sidebar({ Data }) {
       <div className="sidebar">
         <div className="sidebar__items">
           {places.map((place, index) => (
-            <ItemCard key={index} place={place} />
+            <ItemCard
+              key={index}
+              place={place}
+              onLike={handleLike}
+              liked={likedPlaces.includes(place.name)}
+            />
           ))}
         </div>
         <div className="sidebar__bottom">
-          <button className="make__route-btn"> Make Route</button>
+          <button className="make__route-btn" onClick={handleMakeRoute}>
+            Make Route
+          </button>
         </div>
       </div>
     </>

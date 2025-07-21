@@ -9,19 +9,17 @@ import {
 
 import "./Map.css";
 
-const center = { lat: 33.8121, lng: -117.919 }; // Disneyland
-
-const locations = [
-  { key: "operaHouse", location: { lat: 33.8121, lng: -117.919 } },
-  { key: "tarongaZoo", location: { lat: 27.992, lng: -81.695 } },
-  { key: "manlyBeach", location: { lat: 27.995, lng: -81.689 } },
-];
+const center = { lat: 33.8121, lng: -117.919 };
 
 const PoiMarkers = ({ pois }) => {
+  if (!pois || !Array.isArray(pois)) {
+    return null;
+  }
+
   return (
     <>
-      {pois.map((poi) => (
-        <AdvancedMarker key={poi.key} position={poi.location}>
+      {pois.map((poi, index) => (
+        <AdvancedMarker key={poi.key || index} position={poi.location}>
           <Pin className="pin" />
         </AdvancedMarker>
       ))}
@@ -34,9 +32,10 @@ const Route = ({ points }) => {
   const directionsRendererRef = useRef(null);
 
   useEffect(() => {
-    if (!map || points.length < 2) return;
+    if (!map || !points || !Array.isArray(points) || points.length < 2) return;
 
     const directionsService = new window.google.maps.DirectionsService();
+
     if (!directionsRendererRef.current) {
       directionsRendererRef.current = new window.google.maps.DirectionsRenderer(
         {
@@ -45,6 +44,8 @@ const Route = ({ points }) => {
         }
       );
       directionsRendererRef.current.setMap(map);
+    } else {
+      directionsRendererRef.current.setDirections({ routes: [] });
     }
 
     const waypoints = points.slice(1, -1).map((point) => ({
@@ -72,7 +73,7 @@ const Route = ({ points }) => {
   return null;
 };
 
-function GoogleMap() {
+function GoogleMap({ locations }) {
   return (
     <APIProvider apiKey={import.meta.env.VITE_GOOGLE_MAPS_API_KEY}>
       <div className="map-container">
