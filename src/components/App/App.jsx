@@ -87,6 +87,8 @@ function App() {
 
   const handleMakeRoute = () => {
     console.log("Making route with liked places:", likedPlaces);
+    console.log("Available sidebar data:", sidebarData.map(item => ({ name: item.name, id: item.id })));
+    
     if (likedPlaces.length < 2) {
       alert(
         "Please select at least two places first by clicking the heart button!"
@@ -94,18 +96,56 @@ function App() {
       return;
     }
 
+    // Extract location data from the liked attractions
+    const locationData = likedPlaces.map(placeName => {
+      // Find the attraction in sidebarData by name (try exact match first, then partial match)
+      let attraction = sidebarData.find(attraction => attraction.name === placeName);
+      
+      if (!attraction) {
+        // Try partial match if exact match fails
+        attraction = sidebarData.find(attraction => 
+          attraction.name.includes(placeName) || placeName.includes(attraction.name)
+        );
+      }
+      
+      console.log(`Looking for "${placeName}" in attractions:`, attraction);
+      
+      if (attraction && attraction.location) {
+        // Create a unique key from the attraction name
+        const key = attraction.name.replace(/[^a-zA-Z0-9]/g, '').substring(0, 20);
+        return {
+          key: key,
+          location: attraction.location
+        };
+      }
+      return null;
+    }).filter(location => location !== null);
+
+    console.log("Location data for optimization:", locationData);
+
+    if (locationData.length < 2) {
+      console.log("Failed to find valid location data. Available attractions:", sidebarData);
+      alert("Could not find valid location data for selected attractions. Please try selecting different attractions.");
+      return;
+    }
+
     fetch(`${url}/optimize`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ location_ids: likedPlaces }),
+      body: JSON.stringify(locationData),
     })
       .then((response) => response.json())
       .then((data) => {
-        setRoutePoints(data);
+        console.log("Optimization response:", data);
+        if (data.success) {
+          setRoutePoints(data.data.optimized_route);
+        } else {
+          alert("Failed to optimize route: " + (data.message || "Unknown error"));
+        }
       })
-
       .catch((err) => {
         console.error("API error:", err);
+        alert("Failed to optimize route. Please try again.");
       });
   };
   return (
