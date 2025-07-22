@@ -11,6 +11,8 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  background-image: url(../../assets/11+Picture-Perfect+Views+of+the+Golden+Gate+Bridge+in+San+Francisco.jpg);
+  background-position: center;
 }
 
 .header-components {
@@ -57,4 +59,5 @@
   color: black;
   margin-top: 0;
   margin-bottom: 0;
+  text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.7);
 }

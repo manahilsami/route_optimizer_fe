@@ -22,7 +22,7 @@ function Header({ fromCity, toCity, setFromCity, setToCity, onSearch }) {
           SEARCH
         </button>
       </div>
-      <h1 className="header-title">Vacation Optimizer</h1>
+      <h1 className="header-title"> California Vacation Optimizer</h1>
     </header>
   );
 }
