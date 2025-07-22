@@ -135,7 +135,18 @@ function App() {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(locationData),
     })
-      .then((response) => response.json())
+      .then(async (response) => {
+        console.log("Response status:", response.status);
+        console.log("Response headers:", Object.fromEntries(response.headers.entries()));
+        
+        if (!response.ok) {
+          const errorText = await response.text();
+          console.error("Error response:", errorText);
+          throw new Error(`HTTP ${response.status}: ${errorText}`);
+        }
+        
+        return response.json();
+      })
       .then((data) => {
         console.log("Optimization response:", data);
         if (data.success) {

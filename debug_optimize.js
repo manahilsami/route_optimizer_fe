@@ -9,20 +9,27 @@ const API_BASE = "http://localhost:8000";
 async function debugOptimize() {
   console.log("🔍 Debugging optimize endpoint...\n");
 
-  // Test data that should work
+  // Test data that matches exactly what frontend is sending
   const testData = [
     {
-      key: "attraction_0",
+      key: "TheMadGreekformerlyS",
       location: {
-        lat: 34.0536909,
-        lng: -118.242766,
+        lat: 33.8752945,
+        lng: -117.566444,
       },
     },
     {
-      key: "attraction_1",
+      key: "ChevrongaspumpJimRut",
       location: {
-        lat: 37.7792588,
-        lng: -122.4193286,
+        lat: 33.8808327,
+        lng: -117.5133522,
+      },
+    },
+    {
+      key: "McDonaldsFoothillBou",
+      location: {
+        lat: 34.1338751,
+        lng: -117.9056046,
       },
     },
   ];
