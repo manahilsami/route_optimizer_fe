@@ -122,6 +122,7 @@ function App() {
     }).filter(location => location !== null);
 
     console.log("Location data for optimization:", locationData);
+    console.log("JSON being sent:", JSON.stringify(locationData, null, 2));
 
     if (locationData.length < 2) {
       console.log("Failed to find valid location data. Available attractions:", sidebarData);
