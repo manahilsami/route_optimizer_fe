@@ -27,6 +27,30 @@ const PoiMarkers = ({ pois }) => {
   );
 };
 
+const RouteMarkers = ({ markers }) => {
+  if (!markers || !Array.isArray(markers)) {
+    return null;
+  }
+
+  return (
+    <>
+      {markers.map((marker) => (
+        <AdvancedMarker 
+          key={marker.key} 
+          position={marker.position}
+          title={marker.label}
+        >
+          <Pin 
+            className={`pin ${marker.color}`} 
+            background={marker.color === 'blue' ? '#4285F4' : '#34A853'}
+            borderColor={marker.color === 'blue' ? '#1a73e8' : '#137333'}
+          />
+        </AdvancedMarker>
+      ))}
+    </>
+  );
+};
+
 const Route = ({ points }) => {
   const map = useMap();
   const directionsRendererRef = useRef(null);
@@ -73,7 +97,7 @@ const Route = ({ points }) => {
   return null;
 };
 
-function GoogleMap({ locations }) {
+function GoogleMap({ locations, markers }) {
   return (
     <APIProvider apiKey={import.meta.env.VITE_GOOGLE_MAPS_API_KEY}>
       <div className="map-container">
@@ -84,6 +108,7 @@ function GoogleMap({ locations }) {
           mapId="DEMO_MAP_ID"
         >
           <PoiMarkers pois={locations} />
+          <RouteMarkers markers={markers} />
           <Route points={locations} />
         </Map>
       </div>

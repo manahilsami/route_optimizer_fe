@@ -11,8 +11,47 @@ function App() {
   const [sidebarData, setSidebarData] = useState(defaultSidebarData);
   const [likedPlaces, setLikedPlaces] = useState([]);
   const [routePoints, setRoutePoints] = useState([]);
+  const [mapMarkers, setMapMarkers] = useState([]);
 
   const handleSearch = () => {
+    // First, get the route points coordinates for map display
+    fetch(
+      `${url}/route-points?fromCity=${encodeURIComponent(
+        fromCity
+      )}&toCity=${encodeURIComponent(toCity)}`,
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.success) {
+          // Create markers for start and end points
+          const markers = [
+            {
+              key: "start",
+              position: { lat: data.data.start.lat, lng: data.data.start.lng },
+              color: data.data.start.color,
+              label: data.data.start.city
+            },
+            {
+              key: "end", 
+              position: { lat: data.data.end.lat, lng: data.data.end.lng },
+              color: data.data.end.color,
+              label: data.data.end.city
+            }
+          ];
+          setMapMarkers(markers);
+        }
+      })
+      .catch((error) => {
+        console.error("Route points API error:", error);
+      });
+
+    // Then, get the attractions along the route
     fetch(
       `${url}/places?fromCity=${encodeURIComponent(
         fromCity
@@ -25,9 +64,16 @@ function App() {
       }
     )
       .then((response) => response.json())
-      .then((data) => setSidebarData(data))
+      .then((data) => {
+        if (data.success) {
+          setSidebarData(data.data.attractions);
+        } else {
+          setSidebarData([]);
+        }
+      })
       .catch((error) => {
-        console.error("API error:", error);
+        console.error("Places API error:", error);
+        setSidebarData([]);
       });
   };
 
@@ -73,7 +119,7 @@ function App() {
       />
       <div className="app-container">
         <div className="map-area">
-          <GoogleMap locations={routePoints} />
+          <GoogleMap locations={routePoints} markers={mapMarkers} />
         </div>
         <Sidebar
           Data={sidebarData}
