@@ -61,3 +61,62 @@
   margin-bottom: 0;
   text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.7);
 }
+
+@media screen and (max-width: 900px) {
+  .header {
+    height: 60px;
+  }
+
+  .header-title {
+    position: absolute;
+    right: 0px;
+    margin: 0;
+    width: 150px;
+  }
+
+  .header-from {
+    height: 15px;
+    margin-left: 10px;
+    margin-bottom: 5px;
+    margin-top: 10px;
+  }
+
+  .header-to {
+    height: 15px;
+  }
+
+  .header-button {
+    margin-bottom: 10px;
+  }
+}
+
+@media screen and (max-width: 1440px) {
+  .header {
+    height: 40px;
+  }
+
+  .header-title {
+    right: 0px;
+    margin: 0;
+  }
+
+  .header-from {
+    height: 15px;
+    margin-left: 10px;
+    margin-bottom: 5px;
+  }
+
+  .header-to {
+    height: 15px;
+  }
+
+  .header-button {
+    margin-bottom: 10px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .header-from {
+    margin-top: 10px;
+  }
+}
