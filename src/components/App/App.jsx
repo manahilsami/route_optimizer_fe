@@ -28,24 +28,24 @@ function App() {
     )
       .then((response) => response.json())
       .then((data) => {
-        // if (data.success) {
-        //   // Create markers for start and end points
-        //   const markers = [
-        //     {
-        //       key: "start",
-        //       position: { lat: data.data.start.lat, lng: data.data.start.lng },
-        //       color: data.data.start.color,
-        //       label: data.data.start.city,
-        //     },
-        //     {
-        //       key: "end",
-        //       position: { lat: data.data.end.lat, lng: data.data.end.lng },
-        //       color: data.data.end.color,
-        //       label: data.data.end.city,
-        //     },
-        //   ];
-        //   setMapMarkers(markers);
-        // }
+        if (data.success) {
+          // Create markers for start and end points
+          const markers = [
+            {
+              key: "start",
+              position: { lat: data.data.start.lat, lng: data.data.start.lng },
+              color: data.data.start.color,
+              label: data.data.start.city,
+            },
+            {
+              key: "end",
+              position: { lat: data.data.end.lat, lng: data.data.end.lng },
+              color: data.data.end.color,
+              label: data.data.end.city,
+            },
+          ];
+          setMapMarkers(markers);
+        }
       })
       .catch((error) => {
         console.error("Route points API error:", error);
