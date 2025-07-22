@@ -56,8 +56,14 @@
   margin-right: 164px;
   font-size: 24px;
   font-weight: bold;
-  color: black;
+  color: #000000;
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 8px 16px;
+  border-radius: 8px;
+  display: inline-block;
+
   margin-top: 0;
   margin-bottom: 0;
-  text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.7);
+  text-shadow: none;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
