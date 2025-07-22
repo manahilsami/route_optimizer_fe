@@ -29,7 +29,6 @@ function App() {
       .then((response) => response.json())
       .then((data) => {
         if (data.success) {
-          // Create markers for start and end points
           const markers = [
             {
               key: "start",
