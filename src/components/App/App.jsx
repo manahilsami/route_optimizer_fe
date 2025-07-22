@@ -130,7 +130,8 @@ function App() {
       return;
     }
 
-    fetch(`${url}/optimize`, {
+    // Use the new endpoint that includes street directions
+    fetch(`${url}/optimize-with-directions`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(locationData),
@@ -150,7 +151,11 @@ function App() {
       .then((data) => {
         console.log("Optimization response:", data);
         if (data.success) {
+          // Set the optimized route points for the map
           setRoutePoints(data.data.optimized_route);
+          
+          // Also store the directions data for potential use
+          console.log("Directions data:", data.data.directions);
         } else {
           alert("Failed to optimize route: " + (data.message || "Unknown error"));
         }
