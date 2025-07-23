@@ -54,7 +54,6 @@ The application will be available at `http://localhost:3000`
 ### Environment & Configuration
 
 - **Environment Variables** - Secure API key management using .env files
-- **CORS handling** - Cross-origin resource sharing for API communication
 
 ## Usage
 
@@ -117,6 +116,10 @@ Make sure your backend is running and accessible at the configured URL.
 - **ESLint** - JavaScript linting for code quality and consistency
 - **Vite Plugin React** - React integration with Vite build system
 
+## Deployment Link
+
+**View the live application**: [https://manahilsami.github.io/route_optimizer_fe/](https://manahilsami.github.io/route_optimizer_fe/)
+
 ## Troubleshooting
 
 ### Map Not Loading
@@ -134,4 +137,3 @@ Make sure your backend is running and accessible at the configured URL.
 
 - Verify your backend is running
 - Check the API URL in `constants.js`
-- Ensure CORS is properly configured on your backend
