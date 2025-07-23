@@ -1,13 +1,10 @@
 .map-container {
   width: 75vw;
   height: calc(100vh - 70px);
-  margin-top: 70px;
-}
-.map-title {
-  font-size: 24px;
-  font-weight: bold;
-  margin-top: 50px;
-  color: black;
+  margin-top: 80px;
+  padding-top: 10px;
+
+  background-color: white;
 }
 
 .map {

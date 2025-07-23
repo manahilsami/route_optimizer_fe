@@ -31,8 +31,3 @@
   margin: 0 auto;
   height: 45px;
 }
-
-@media screen and (max-width: 1440px) {
-  .sidebar {
-  }
-}

@@ -28,10 +28,22 @@
 .item-card__img {
   width: 130px;
   height: 130px;
-  object-fit: cover;
+  object-fit: fill;
   border-radius: 10px;
   margin-right: 10px;
-  flex-shrink: 0;
+  position: relative;
+}
+
+.item-card__img--error {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f5f5f5;
+  border: 2px dashed #ccc;
+  color: #666;
+  font-size: 12px;
+  text-align: center;
+  font-weight: bold;
 }
 
 .item-card__button {
