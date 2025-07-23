@@ -19,6 +19,43 @@ Before running this application, make sure you have the following installed:
 - **npm** package manager
 - **Google Maps API Key** (required for map functionality)
 
+## Getting Started
+
+### Google Maps API Setup
+
+**Important**: This application requires a Google Maps API key to function properly.
+
+#### Setting Up Environment Variables:
+
+Open the `.env` file and add your Google Maps API key:
+
+```bash
+VITE_GOOGLE_MAPS_API_KEY=your_actual_api_key_here
+```
+
+**Note**: Replace `your_actual_api_key_here` with your actual Google Maps API key.
+
+### Configure Backend URL
+
+Make sure your backend API is running and update the URL in `src/components/utils/constants.js` if needed:
+
+```javascript
+export const url = "http://localhost:8000";
+```
+
+The application will be available at `http://localhost:3000`
+
+### Maps & Geolocation
+
+- **Google Maps JavaScript API** - Interactive maps, markers, and route visualization
+- **Google Places API** - Place search and location data
+- **Google Directions API** - Route calculation and optimization
+
+### Environment & Configuration
+
+- **Environment Variables** - Secure API key management using .env files
+- **CORS handling** - Cross-origin resource sharing for API communication
+
 ## Usage
 
 1. **Search for Places**:
@@ -92,3 +129,9 @@ Make sure your backend is running and accessible at the configured URL.
 
 - The application includes fallback handling for broken image URLs
 - "No Image" placeholder will be shown for invalid images
+
+### API Connection Issues
+
+- Verify your backend is running
+- Check the API URL in `constants.js`
+- Ensure CORS is properly configured on your backend
