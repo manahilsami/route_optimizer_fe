@@ -14,7 +14,6 @@ function App() {
   const [mapMarkers, setMapMarkers] = useState([]);
 
   const handleSearch = () => {
-    // First, get the route points coordinates for map display
     fetch(
       `${url}/route-points?fromCity=${encodeURIComponent(
         fromCity
@@ -50,7 +49,6 @@ function App() {
         console.error("Route points API error:", error);
       });
 
-    // Then, get the attractions along the route
     fetch(
       `${url}/places?fromCity=${encodeURIComponent(
         fromCity
